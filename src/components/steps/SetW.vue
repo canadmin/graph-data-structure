@@ -1,7 +1,7 @@
 <template>
 
   <div class="set-weight text-center">
-    <div>
+    <div class="weight">
     <table class="new-table">
       <tr>
       <th>
@@ -62,6 +62,8 @@
         },
         methods:{
             forward(){
+                this.$store.dispatch("setW", this.newW);
+
                 this.$emit("changePage","appDraw")
 
             }
@@ -71,7 +73,10 @@
 
 <style scoped>
 .set-weight{
-
+  overflow-y: auto;
+height: 600px;
+}
+.weight{
 }
 .new-table {
   margin: auto;

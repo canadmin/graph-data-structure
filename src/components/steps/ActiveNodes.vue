@@ -1,7 +1,7 @@
 <template>
   <div class="text-center col-12">
-    <div class="active-nodes">
-      <table class="new-table">
+    <div class="active-nodes mt-5 ">
+      <table class="new-table ">
         <tr>
           <th>İndex</th>
           <th>Düğüm no</th>
@@ -10,119 +10,34 @@
           <th>Değer</th>
         </tr>
         <tbody>
-        <tr class="">
+        <tr class="" v-for="(index in 36">
           <td>
-            1
+            {{index}}
           </td>
           <td class="">
-            <input class="node-input" v-model="nodeFrom[0]">
+            <input class="node-input" v-model="nodeFrom[index]">
           </td>
           <td>
             ->
           </td>
           <td>
-            <input class="node-input" v-model="toNode[0]">
+            <input class="node-input" v-model="toNode[index]">
           </td>
           <td>
-            <input class="ml-3 node-input" v-model="validity[0]">
-          </td>
-        </tr>
-        <tr class="">
-          <td>
-            2
-          </td>
-          <td class="">
-            <input class="node-input" v-model="nodeFrom[1]">
-          </td>
-          <td>
-            ->
-          </td>
-          <td>
-            <input class="node-input" v-model="toNode[1]">
-          </td>
-          <td>
-            <input class="ml-3 node-input" v-model="validity[1]">
-          </td>
-        </tr>
-        <tr class="">
-          <td>
-            3
-          </td>
-          <td class="">
-            <input class="node-input" v-model="nodeFrom[2]">
-          </td>
-          <td>
-            ->
-          </td>
-          <td>
-            <input class="node-input" v-model="toNode[2]">
-          </td>
-          <td>
-            <input class="ml-3 node-input" v-model="validity[2]">
-          </td>
-        </tr>
-        <tr class="">
-          <td>
-            4
-          </td>
-          <td class="">
-            <input class="node-input" v-model="nodeFrom[3]">
-          </td>
-          <td>
-            ->
-          </td>
-          <td>
-            <input class="node-input" v-model="toNode[3]">
-          </td>
-          <td>
-            <input class="ml-3 node-input" v-model="validity[3]">
-          </td>
-        </tr>
-        <tr class="">
-          <td>
-            5
-          </td>
-          <td class="">
-            <input class="node-input" v-model="nodeFrom[4]">
-          </td>
-          <td>
-            ->
-          </td>
-          <td>
-            <input class="node-input" v-model="toNode[4]">
-          </td>
-          <td>
-            <input class="ml-3 node-input" v-model="validity[4]">
-          </td>
-        </tr>
-        <tr class="">
-          <td>
-            6
-          </td>
-          <td class="">
-            <input class="node-input" v-model="nodeFrom[5]">
-          </td>
-          <td>
-            ->
-          </td>
-          <td>
-            <input class="node-input" v-model="toNode[5]">
-          </td>
-          <td>
-            <input class="ml-3 node-input" v-model="validity[5]">
+            <input class="ml-3 node-input" v-model="validity[index]">
           </td>
         </tr>
         </tbody>
       </table>
-      <div class="mt-3">
-        <button class="display-button" @click="forward">İleri</button>
-      </div>
+
       <div>
 
       </div>
 
     </div>
-
+    <div class="mt-3">
+      <button class="display-button" @click="forward">İleri</button>
+    </div>
   </div>
 
 </template>
@@ -146,7 +61,7 @@
                 var validToNode = [];
                 var activeNode = [];
                 var graph = [];
-                for (var i = 0; i < 6; i++) {
+                for (var i = 0; i < 36; i++) {
                     if (this.validity[i] === "1") {
                         if (!activeNode.includes(this.nodeFrom[i])) {
                             activeNode.push(this.nodeFrom[i]);
@@ -186,7 +101,9 @@
   }
 
   .active-nodes {
-    width: 1200px;
+    width: 1185px;
+    height: 478px;
+    overflow-y: auto;
   }
 
   .display-button {
